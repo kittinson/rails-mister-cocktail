@@ -5,7 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
+gem 'bootstrap-sass'
+
+gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record

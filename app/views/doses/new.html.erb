@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1511359869250-81413958da33?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c329c25628c1c7e33822c1b4e8f3ae0d&auto=format&fit=crop&w=1950&q=80');">
+<div class="container">
+  <div class="row">
+       <h1>Add a new dose to the cocktail</h1>
+    <div class="col col-sm-4 col-sm-offset-4">
+     <%= simple_form_for([@cocktail, @dose]) do |f| %>
+         <%= f.input :description, label: "Enter an amount: " %>
+         <%= f.association :ingredient, label: "Ingredient: ", collection: Ingredient.all.order('name ASC') %>
+         <%= f.submit "Add an ingredient", class: "btn-treehouse" %>
+     <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+</div>
+<%= link_to "Back", cocktails_path(@cocktail), class: "btn-medium btn-back" %>
