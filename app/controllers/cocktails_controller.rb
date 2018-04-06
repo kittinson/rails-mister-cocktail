@@ -1,7 +1,13 @@
 class CocktailsController < ApplicationController
 
   def index
-    @cocktails = Cocktail.all
+
+    if params[:search]
+      @ingredient = Ingredient.where(name: params[:search].capitalize).first
+      @cocktails = @ingredient.cocktails
+    else
+      @cocktails = Cocktail.all
+    end
   end
 
   def show
@@ -45,7 +51,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 
 end

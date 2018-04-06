@@ -1,13 +1,19 @@
-   <%= link_to "Create a new cocktail", new_cocktail_path, class: "btn-medium" %>
+<%= link_to "Create a new cocktail", new_cocktail_path, class: "btn-medium" %>
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1481833761820-0509d3217039?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3fb6b264e88b8819ae92aa44494eca81&auto=format&fit=crop&w=1950&q=80');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(' <%= cl_image_path("d26c3u4z3kknba7yql5r") %>');">
+<div class="search">
+<%= form_tag(cocktails_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Type here..", class: "search-line" %>
+  <%= submit_tag "Search", class: "btn-search", :name => nil %>
+<% end %>
+</div>
 <div class="container">
 <h1>Welcome to Mr. Cocktail</h1>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col col-xs-12 col-sm-4">
         <%= link_to cocktail_path(cocktail) do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/4784/alcohol-bar-party-cocktail.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, crop: :fill %>');">
           <div class="card-category">Popular</div>
             <div class="card-description">
               <h2><%= cocktail.name %></h2>
@@ -20,7 +26,15 @@
   </div>
 </div>
 </div>
-
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fa fa-github"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+  </div>
+</div>
 
 
 

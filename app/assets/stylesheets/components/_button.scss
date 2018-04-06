@@ -10,12 +10,12 @@
   position: absolute;
   right: 10px;
   top: 10px;
-  // opacity: 0.6;
+  // opacity: 0.9;
 }
 .btn-medium:hover {
-  opacity: 1;
+  // opacity: 1;
   text-decoration: none;
-  color: #999999;
+  color: white;
 }
 
 .btn-treehouse {
@@ -26,6 +26,7 @@
   background: #4d394b;
   transition: background 0.3s ease;
   margin-top: 15px;
+  display: flex;
 }
 .btn-treehouse:hover {
   opacity: 1;
