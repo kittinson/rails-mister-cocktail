@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.4.3'
+
 gem 'figaro'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
